@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d4449efc49f244858c4085c7d8e772e4" Name="Diagram1">
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_tipos_usuarios" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_usuarios" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_usuari__id_ti__07F6335A" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_causas" Width="1.5" PointX="3" PointY="24.125" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_coberturas" Width="1.5" PointX="0.75" PointY="26.5" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_direccion_facturas" Width="1.5" PointX="3" PointY="21.25" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_domicilios" Width="1.5" PointX="3" PointY="15.375" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_ingresos" Width="1.5" PointX="10.5" PointY="8.125" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_medicos" Width="1.5" PointX="0.75" PointY="8.375" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_medicos_clinica" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_medicos_solicita_ingresos" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_pacientes" Width="1.5" PointX="5.25" PointY="6" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_religiones" Width="1.5" PointX="3" PointY="18.875" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_seguros" Width="1.5" PointX="0.75" PointY="28.875" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_seguros_pacientes" Width="1.5" PointX="3" PointY="28.25" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_solicitudes_medicas" Width="1.5" PointX="7.5" PointY="11.5" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_tipos_ingresos" Width="1.5" PointX="8.25" PointY="5.75" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_tipos_seguro" Width="1.5" PointX="0.75" PointY="31.25" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_tipos_seguros_excluidos" Width="1.5" PointX="3" PointY="32.875" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_tratamientos" Width="1.5" PointX="3" PointY="13.125" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_seguro__id_co__2D27B809" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_pacien__id_di__3C34F16F" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_pacien__id_do__37703C52" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_ingres__id_pa__41EDCAC5" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_ingres__id_ti__42E1EEFE" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_medico__id_me__2CF2ADDF" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_medico__id_me__31B762FC" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_pacien__id_me__395884C4" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_pacien__id_me__3A4CA8FD" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_pacien__id_re__367C1819" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_pacien__id_se__3B40CD36" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_pacien__id_tr__3864608B" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_solici__id_pa__4D5F7D71" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_seguro__id_se__2B3F6F97" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_seguro__id_ti__2C3393D0" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_parientes_pacientes" Width="1.5" PointX="10.5" PointY="4" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_tipo_pariente" Width="1.5" PointX="8.25" PointY="2.875" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_parien__id_pa__4F7CD00D" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_parien__tipo___5070F446" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_causas_pacientes1" Width="1.5" PointX="7.5" PointY="15" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_causas__id_ca__534D60F1" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_causas__id_pa__5441852A" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_otros_domicilios" Width="1.5" PointX="7.125" PointY="8.375" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_otros___id_do__47A6A41B" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_otros___id_pa__489AC854" />
+        <EntityTypeShape EntityType="sistema_pacientesModel.ma_seguro_pacientes_excluidos" Width="1.5" PointX="5.25" PointY="29.75" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_seguro__id_se__5CD6CB2B" />
+        <AssociationConnector Association="sistema_pacientesModel.FK__ma_seguro__id_ti__5DCAEF64" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

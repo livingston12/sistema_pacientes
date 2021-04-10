@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sistema_pacientesModelStoreContainer" CdmEntityContainer="sistema_pacientesEntities">
+    <EntitySetMapping Name="ma_tipos_usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_tipos_usuarios)">
+        <MappingFragment StoreEntitySet="ma_tipos_usuarios">
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_usuarios)">
+        <MappingFragment StoreEntitySet="ma_usuarios">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_causas">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_causas)">
+        <MappingFragment StoreEntitySet="ma_causas">
+          <ScalarProperty Name="id_causa" ColumnName="id_causa" />
+          <ScalarProperty Name="causa" ColumnName="causa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_coberturas">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_coberturas)">
+        <MappingFragment StoreEntitySet="ma_coberturas">
+          <ScalarProperty Name="id_cobertura" ColumnName="id_cobertura" />
+          <ScalarProperty Name="cobertura" ColumnName="cobertura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_direccion_facturas">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_direccion_facturas)">
+        <MappingFragment StoreEntitySet="ma_direccion_facturas">
+          <ScalarProperty Name="id_direccion_fac" ColumnName="id_direccion_fac" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_domicilios">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_domicilios)">
+        <MappingFragment StoreEntitySet="ma_domicilios">
+          <ScalarProperty Name="id_domicilio" ColumnName="id_domicilio" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="movil" ColumnName="movil" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_ingresos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_ingresos)">
+        <MappingFragment StoreEntitySet="ma_ingresos">
+          <ScalarProperty Name="id_ingreso" ColumnName="id_ingreso" />
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+          <ScalarProperty Name="id_tipo_ingreso" ColumnName="id_tipo_ingreso" />
+          <ScalarProperty Name="solicitud_ingreso" ColumnName="solicitud_ingreso" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="hora_ingreso" ColumnName="hora_ingreso" />
+          <ScalarProperty Name="documento_identidad" ColumnName="documento_identidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_medicos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_medicos)">
+        <MappingFragment StoreEntitySet="ma_medicos">
+          <ScalarProperty Name="id_medico" ColumnName="id_medico" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_medicos_clinica">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_medicos_clinica)">
+        <MappingFragment StoreEntitySet="ma_medicos_clinica">
+          <ScalarProperty Name="id_medico_clinica" ColumnName="id_medico_clinica" />
+          <ScalarProperty Name="id_medico" ColumnName="id_medico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_medicos_solicita_ingresos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_medicos_solicita_ingresos)">
+        <MappingFragment StoreEntitySet="ma_medicos_solicita_ingresos">
+          <ScalarProperty Name="id_medico_solicita" ColumnName="id_medico_solicita" />
+          <ScalarProperty Name="id_medico" ColumnName="id_medico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_pacientes">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_pacientes)">
+        <MappingFragment StoreEntitySet="ma_pacientes">
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+          <ScalarProperty Name="num_seguridad_social" ColumnName="num_seguridad_social" />
+          <ScalarProperty Name="num_tarjeta" ColumnName="num_tarjeta" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="apellido_solte" ColumnName="apellido_solte" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="lugar_nacimiento" ColumnName="lugar_nacimiento" />
+          <ScalarProperty Name="profesion" ColumnName="profesion" />
+          <ScalarProperty Name="idioma" ColumnName="idioma" />
+          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+          <ScalarProperty Name="permiso_residencia" ColumnName="permiso_residencia" />
+          <ScalarProperty Name="estado_civil" ColumnName="estado_civil" />
+          <ScalarProperty Name="id_religion" ColumnName="id_religion" />
+          <ScalarProperty Name="id_domicilio" ColumnName="id_domicilio" />
+          <ScalarProperty Name="id_tratamiento" ColumnName="id_tratamiento" />
+          <ScalarProperty Name="id_medico_clinica" ColumnName="id_medico_clinica" />
+          <ScalarProperty Name="id_medicos_solicita" ColumnName="id_medicos_solicita" />
+          <ScalarProperty Name="id_seguro_pacientes" ColumnName="id_seguro_pacientes" />
+          <ScalarProperty Name="id_direccion_fac" ColumnName="id_direccion_fac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_religiones">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_religiones)">
+        <MappingFragment StoreEntitySet="ma_religiones">
+          <ScalarProperty Name="id_religion" ColumnName="id_religion" />
+          <ScalarProperty Name="religion" ColumnName="religion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_seguros">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_seguros)">
+        <MappingFragment StoreEntitySet="ma_seguros">
+          <ScalarProperty Name="id_seguro" ColumnName="id_seguro" />
+          <ScalarProperty Name="seguro" ColumnName="seguro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_seguros_pacientes">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_seguros_pacientes)">
+        <MappingFragment StoreEntitySet="ma_seguros_pacientes">
+          <ScalarProperty Name="id_seguro_paciente" ColumnName="id_seguro_paciente" />
+          <ScalarProperty Name="id_seguro" ColumnName="id_seguro" />
+          <ScalarProperty Name="num_poliza" ColumnName="num_poliza" />
+          <ScalarProperty Name="id_tipo_seguro" ColumnName="id_tipo_seguro" />
+          <ScalarProperty Name="id_cobertura" ColumnName="id_cobertura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_solicitudes_medicas">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_solicitudes_medicas)">
+        <MappingFragment StoreEntitySet="ma_solicitudes_medicas">
+          <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_tipos_ingresos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_tipos_ingresos)">
+        <MappingFragment StoreEntitySet="ma_tipos_ingresos">
+          <ScalarProperty Name="id_tipo_ingreso" ColumnName="id_tipo_ingreso" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_tipos_seguro">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_tipos_seguro)">
+        <MappingFragment StoreEntitySet="ma_tipos_seguro">
+          <ScalarProperty Name="id_tipo_seguro" ColumnName="id_tipo_seguro" />
+          <ScalarProperty Name="tipo_seguro" ColumnName="tipo_seguro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_tipos_seguros_excluidos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_tipos_seguros_excluidos)">
+        <MappingFragment StoreEntitySet="ma_tipos_seguros_excluidos">
+          <ScalarProperty Name="id_tipo_exclusion" ColumnName="id_tipo_exclusion" />
+          <ScalarProperty Name="tipo_exclusion" ColumnName="tipo_exclusion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_tratamientos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_tratamientos)">
+        <MappingFragment StoreEntitySet="ma_tratamientos">
+          <ScalarProperty Name="id_tratamiento" ColumnName="id_tratamiento" />
+          <ScalarProperty Name="tratamiento" ColumnName="tratamiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_parientes_pacientes">
+      <EntityTypeMapping TypeName="sistema_pacientesModel.ma_parientes_pacientes">
+        <MappingFragment StoreEntitySet="ma_parientes_pacientes">
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="relacion" ColumnName="relacion" />
+          <ScalarProperty Name="tipo_pariente" ColumnName="tipo_pariente" />
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+          <ScalarProperty Name="id_pariente" ColumnName="id_pariente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_tipo_pariente">
+      <EntityTypeMapping TypeName="sistema_pacientesModel.ma_tipo_pariente">
+        <MappingFragment StoreEntitySet="ma_tipo_pariente">
+          <ScalarProperty Name="tipo_pariente" ColumnName="tipo_pariente" />
+          <ScalarProperty Name="id_tipo_pariente" ColumnName="id_tipo_pariente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_causas_pacientes1Set">
+      <EntityTypeMapping TypeName="sistema_pacientesModel.ma_causas_pacientes1">
+        <MappingFragment StoreEntitySet="ma_causas_pacientes">
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+          <ScalarProperty Name="id_causa" ColumnName="id_causa" />
+          <ScalarProperty Name="id_causa_paciente" ColumnName="id_causa_paciente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_otros_domicilios">
+      <EntityTypeMapping TypeName="sistema_pacientesModel.ma_otros_domicilios">
+        <MappingFragment StoreEntitySet="ma_otros_domicilios">
+          <ScalarProperty Name="id_otro_domicilio" ColumnName="id_otro_domicilio" />
+          <ScalarProperty Name="domiciliado" ColumnName="domiciliado" />
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+          <ScalarProperty Name="id_domilicio" ColumnName="id_domilicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_seguro_pacientes_excluidos">
+      <EntityTypeMapping TypeName="sistema_pacientesModel.ma_seguro_pacientes_excluidos">
+        <MappingFragment StoreEntitySet="ma_seguro_pacientes_excluidos">
+          <ScalarProperty Name="id_seguro_paciente_excluido" ColumnName="id_seguro_paciente_excluido" />
+          <ScalarProperty Name="num_disposicion_invalidez" ColumnName="num_disposicion_invalidez" />
+          <ScalarProperty Name="fecha_accidente" ColumnName="fecha_accidente" />
+          <ScalarProperty Name="lugar_accidente" ColumnName="lugar_accidente" />
+          <ScalarProperty Name="num_empresa" ColumnName="num_empresa" />
+          <ScalarProperty Name="num_accidente" ColumnName="num_accidente" />
+          <ScalarProperty Name="asegurador" ColumnName="asegurador" />
+          <ScalarProperty Name="id_tipo_exclusion" ColumnName="id_tipo_exclusion" />
+          <ScalarProperty Name="id_seguro_paciente" ColumnName="id_seguro_paciente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

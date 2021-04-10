@@ -1,0 +1,1610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="sistema_pacientesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ma_causas">
+          <Key>
+            <PropertyRef Name="id_causa" />
+          </Key>
+          <Property Name="id_causa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="causa" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_causas_pacientes">
+          <Key>
+            <PropertyRef Name="id_causa_paciente" />
+          </Key>
+          <Property Name="id_causa_paciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_causa" Type="int" Nullable="false" />
+          <Property Name="id_paciente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_coberturas">
+          <Key>
+            <PropertyRef Name="id_cobertura" />
+          </Key>
+          <Property Name="id_cobertura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cobertura" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_direccion_facturas">
+          <Key>
+            <PropertyRef Name="id_direccion_fac" />
+          </Key>
+          <Property Name="id_direccion_fac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="apellidos" Type="varchar(max)" Nullable="false" />
+          <Property Name="calle" Type="varchar(max)" Nullable="false" />
+          <Property Name="localidad" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_domicilios">
+          <Key>
+            <PropertyRef Name="id_domicilio" />
+          </Key>
+          <Property Name="id_domicilio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="calle" Type="varchar(max)" Nullable="false" />
+          <Property Name="localidad" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="movil" Type="varchar" MaxLength="15" />
+          <Property Name="pais" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="correo" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ma_ingresos">
+          <Key>
+            <PropertyRef Name="id_ingreso" />
+          </Key>
+          <Property Name="id_ingreso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_paciente" Type="int" Nullable="false" />
+          <Property Name="id_tipo_ingreso" Type="int" Nullable="false" />
+          <Property Name="solicitud_ingreso" Type="varchar" MaxLength="50" />
+          <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
+          <Property Name="hora_ingreso" Type="time" Precision="7" />
+          <Property Name="documento_identidad" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ma_medicos">
+          <Key>
+            <PropertyRef Name="id_medico" />
+          </Key>
+          <Property Name="id_medico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="calle" Type="varchar(max)" Nullable="false" />
+          <Property Name="localidad" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_medicos_clinica">
+          <Key>
+            <PropertyRef Name="id_medico_clinica" />
+          </Key>
+          <Property Name="id_medico_clinica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_medico" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_medicos_solicita_ingresos">
+          <Key>
+            <PropertyRef Name="id_medico_solicita" />
+          </Key>
+          <Property Name="id_medico_solicita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_medico" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_otros_domicilios">
+          <Key>
+            <PropertyRef Name="id_otro_domicilio" />
+          </Key>
+          <Property Name="id_domilicio" Type="int" Nullable="false" />
+          <Property Name="id_paciente" Type="int" Nullable="false" />
+          <Property Name="domiciliado" Type="varchar(max)" Nullable="false" />
+          <Property Name="id_otro_domicilio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_pacientes">
+          <Key>
+            <PropertyRef Name="id_paciente" />
+          </Key>
+          <Property Name="id_paciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="num_seguridad_social" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="num_tarjeta" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="apellido" Type="varchar(max)" Nullable="false" />
+          <Property Name="apellido_solte" Type="varchar(max)" />
+          <Property Name="fecha_nacimiento" Type="datetime" Nullable="false" />
+          <Property Name="sexo" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="lugar_nacimiento" Type="varchar(max)" Nullable="false" />
+          <Property Name="profesion" Type="varchar" MaxLength="70" />
+          <Property Name="idioma" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="nacionalidad" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="permiso_residencia" Type="varchar" MaxLength="70" />
+          <Property Name="estado_civil" Type="varchar" MaxLength="50" />
+          <Property Name="id_religion" Type="int" />
+          <Property Name="id_domicilio" Type="int" Nullable="false" />
+          <Property Name="id_tratamiento" Type="int" Nullable="false" />
+          <Property Name="id_medico_clinica" Type="int" Nullable="false" />
+          <Property Name="id_medicos_solicita" Type="int" />
+          <Property Name="id_seguro_pacientes" Type="int" Nullable="false" />
+          <Property Name="id_direccion_fac" Type="int" />
+        </EntityType>
+        <EntityType Name="ma_parientes_pacientes">
+          <Key>
+            <PropertyRef Name="id_pariente" />
+          </Key>
+          <Property Name="id_pariente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_paciente" Type="int" Nullable="false" />
+          <Property Name="tipo_pariente" Type="int" Nullable="false" />
+          <Property Name="relacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="apellidos" Type="varchar(max)" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="15" />
+          <Property Name="calle" Type="varchar(max)" Nullable="false" />
+          <Property Name="localidad" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="pais" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_religiones">
+          <Key>
+            <PropertyRef Name="id_religion" />
+          </Key>
+          <Property Name="id_religion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="religion" Type="varchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_seguro_pacientes_excluidos">
+          <Key>
+            <PropertyRef Name="id_seguro_paciente_excluido" />
+          </Key>
+          <Property Name="id_seguro_paciente" Type="int" />
+          <Property Name="id_tipo_exclusion" Type="int" />
+          <Property Name="asegurador" Type="varchar(max)" Nullable="false" />
+          <Property Name="num_accidente" Type="varchar" MaxLength="25" />
+          <Property Name="num_empresa" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="lugar_accidente" Type="varchar(max)" />
+          <Property Name="fecha_accidente" Type="datetime" />
+          <Property Name="num_disposicion_invalidez" Type="varchar" MaxLength="25" />
+          <Property Name="id_seguro_paciente_excluido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_seguros">
+          <Key>
+            <PropertyRef Name="id_seguro" />
+          </Key>
+          <Property Name="id_seguro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="seguro" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_seguros_pacientes">
+          <Key>
+            <PropertyRef Name="id_seguro_paciente" />
+          </Key>
+          <Property Name="id_seguro_paciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_seguro" Type="int" Nullable="false" />
+          <Property Name="num_poliza" Type="varchar" MaxLength="25" />
+          <Property Name="id_tipo_seguro" Type="int" Nullable="false" />
+          <Property Name="id_cobertura" Type="int" />
+        </EntityType>
+        <EntityType Name="ma_solicitudes_medicas">
+          <Key>
+            <PropertyRef Name="id_solicitud" />
+          </Key>
+          <Property Name="id_solicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_paciente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_tipo_pariente">
+          <Key>
+            <PropertyRef Name="id_tipo_pariente" />
+          </Key>
+          <Property Name="id_tipo_pariente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_pariente" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_tipos_ingresos">
+          <Key>
+            <PropertyRef Name="id_tipo_ingreso" />
+          </Key>
+          <Property Name="id_tipo_ingreso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_tipos_seguro">
+          <Key>
+            <PropertyRef Name="id_tipo_seguro" />
+          </Key>
+          <Property Name="id_tipo_seguro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_seguro" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_tipos_seguros_excluidos">
+          <Key>
+            <PropertyRef Name="id_tipo_exclusion" />
+          </Key>
+          <Property Name="id_tipo_exclusion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_exclusion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_tipos_usuarios">
+          <Key>
+            <PropertyRef Name="id_tipo" />
+          </Key>
+          <Property Name="id_tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_tratamientos">
+          <Key>
+            <PropertyRef Name="id_tratamiento" />
+          </Key>
+          <Property Name="id_tratamiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tratamiento" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ma_usuarios">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="pass" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="id_tipo" Type="int" />
+        </EntityType>
+        <Association Name="FK__ma_causas__id_ca__534D60F1">
+          <End Role="ma_causas" Type="Self.ma_causas" Multiplicity="1" />
+          <End Role="ma_causas_pacientes" Type="Self.ma_causas_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_causas">
+              <PropertyRef Name="id_causa" />
+            </Principal>
+            <Dependent Role="ma_causas_pacientes">
+              <PropertyRef Name="id_causa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_causas__id_pa__5441852A">
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="1" />
+          <End Role="ma_causas_pacientes" Type="Self.ma_causas_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="ma_causas_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_ingres__id_pa__41EDCAC5">
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="1" />
+          <End Role="ma_ingresos" Type="Self.ma_ingresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="ma_ingresos">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_ingres__id_ti__42E1EEFE">
+          <End Role="ma_tipos_ingresos" Type="Self.ma_tipos_ingresos" Multiplicity="1" />
+          <End Role="ma_ingresos" Type="Self.ma_ingresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tipos_ingresos">
+              <PropertyRef Name="id_tipo_ingreso" />
+            </Principal>
+            <Dependent Role="ma_ingresos">
+              <PropertyRef Name="id_tipo_ingreso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_medico__id_me__2CF2ADDF">
+          <End Role="ma_medicos" Type="Self.ma_medicos" Multiplicity="1" />
+          <End Role="ma_medicos_clinica" Type="Self.ma_medicos_clinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_medicos">
+              <PropertyRef Name="id_medico" />
+            </Principal>
+            <Dependent Role="ma_medicos_clinica">
+              <PropertyRef Name="id_medico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_medico__id_me__31B762FC">
+          <End Role="ma_medicos" Type="Self.ma_medicos" Multiplicity="1" />
+          <End Role="ma_medicos_solicita_ingresos" Type="Self.ma_medicos_solicita_ingresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_medicos">
+              <PropertyRef Name="id_medico" />
+            </Principal>
+            <Dependent Role="ma_medicos_solicita_ingresos">
+              <PropertyRef Name="id_medico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_otros___id_do__47A6A41B">
+          <End Role="ma_domicilios" Type="Self.ma_domicilios" Multiplicity="1" />
+          <End Role="ma_otros_domicilios" Type="Self.ma_otros_domicilios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_domicilios">
+              <PropertyRef Name="id_domicilio" />
+            </Principal>
+            <Dependent Role="ma_otros_domicilios">
+              <PropertyRef Name="id_domilicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_otros___id_pa__489AC854">
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="1" />
+          <End Role="ma_otros_domicilios" Type="Self.ma_otros_domicilios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="ma_otros_domicilios">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_di__3C34F16F">
+          <End Role="ma_direccion_facturas" Type="Self.ma_direccion_facturas" Multiplicity="0..1" />
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_direccion_facturas">
+              <PropertyRef Name="id_direccion_fac" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_direccion_fac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_do__37703C52">
+          <End Role="ma_domicilios" Type="Self.ma_domicilios" Multiplicity="1" />
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_domicilios">
+              <PropertyRef Name="id_domicilio" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_domicilio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_me__395884C4">
+          <End Role="ma_medicos_clinica" Type="Self.ma_medicos_clinica" Multiplicity="1" />
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_medicos_clinica">
+              <PropertyRef Name="id_medico_clinica" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_medico_clinica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_me__3A4CA8FD">
+          <End Role="ma_medicos_solicita_ingresos" Type="Self.ma_medicos_solicita_ingresos" Multiplicity="0..1" />
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_medicos_solicita_ingresos">
+              <PropertyRef Name="id_medico_solicita" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_medicos_solicita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_re__367C1819">
+          <End Role="ma_religiones" Type="Self.ma_religiones" Multiplicity="0..1" />
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_religiones">
+              <PropertyRef Name="id_religion" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_religion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_se__3B40CD36">
+          <End Role="ma_seguros_pacientes" Type="Self.ma_seguros_pacientes" Multiplicity="1" />
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_seguros_pacientes">
+              <PropertyRef Name="id_seguro_paciente" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_seguro_pacientes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_tr__3864608B">
+          <End Role="ma_tratamientos" Type="Self.ma_tratamientos" Multiplicity="1" />
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tratamientos">
+              <PropertyRef Name="id_tratamiento" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_tratamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_parien__id_pa__4F7CD00D">
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="1" />
+          <End Role="ma_parientes_pacientes" Type="Self.ma_parientes_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="ma_parientes_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_parien__tipo___5070F446">
+          <End Role="ma_tipo_pariente" Type="Self.ma_tipo_pariente" Multiplicity="1" />
+          <End Role="ma_parientes_pacientes" Type="Self.ma_parientes_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tipo_pariente">
+              <PropertyRef Name="id_tipo_pariente" />
+            </Principal>
+            <Dependent Role="ma_parientes_pacientes">
+              <PropertyRef Name="tipo_pariente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_seguro__id_co__2D27B809">
+          <End Role="ma_coberturas" Type="Self.ma_coberturas" Multiplicity="0..1" />
+          <End Role="ma_seguros_pacientes" Type="Self.ma_seguros_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_coberturas">
+              <PropertyRef Name="id_cobertura" />
+            </Principal>
+            <Dependent Role="ma_seguros_pacientes">
+              <PropertyRef Name="id_cobertura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_seguro__id_se__2B3F6F97">
+          <End Role="ma_seguros" Type="Self.ma_seguros" Multiplicity="1" />
+          <End Role="ma_seguros_pacientes" Type="Self.ma_seguros_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_seguros">
+              <PropertyRef Name="id_seguro" />
+            </Principal>
+            <Dependent Role="ma_seguros_pacientes">
+              <PropertyRef Name="id_seguro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_seguro__id_se__5CD6CB2B">
+          <End Role="ma_seguros_pacientes" Type="Self.ma_seguros_pacientes" Multiplicity="0..1" />
+          <End Role="ma_seguro_pacientes_excluidos" Type="Self.ma_seguro_pacientes_excluidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_seguros_pacientes">
+              <PropertyRef Name="id_seguro_paciente" />
+            </Principal>
+            <Dependent Role="ma_seguro_pacientes_excluidos">
+              <PropertyRef Name="id_seguro_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_seguro__id_ti__2C3393D0">
+          <End Role="ma_tipos_seguro" Type="Self.ma_tipos_seguro" Multiplicity="1" />
+          <End Role="ma_seguros_pacientes" Type="Self.ma_seguros_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tipos_seguro">
+              <PropertyRef Name="id_tipo_seguro" />
+            </Principal>
+            <Dependent Role="ma_seguros_pacientes">
+              <PropertyRef Name="id_tipo_seguro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_seguro__id_ti__5DCAEF64">
+          <End Role="ma_tipos_seguros_excluidos" Type="Self.ma_tipos_seguros_excluidos" Multiplicity="0..1" />
+          <End Role="ma_seguro_pacientes_excluidos" Type="Self.ma_seguro_pacientes_excluidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tipos_seguros_excluidos">
+              <PropertyRef Name="id_tipo_exclusion" />
+            </Principal>
+            <Dependent Role="ma_seguro_pacientes_excluidos">
+              <PropertyRef Name="id_tipo_exclusion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_solici__id_pa__4D5F7D71">
+          <End Role="ma_pacientes" Type="Self.ma_pacientes" Multiplicity="1" />
+          <End Role="ma_solicitudes_medicas" Type="Self.ma_solicitudes_medicas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="ma_solicitudes_medicas">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_usuari__id_ti__07F6335A">
+          <End Role="ma_tipos_usuarios" Type="Self.ma_tipos_usuarios" Multiplicity="0..1" />
+          <End Role="ma_usuarios" Type="Self.ma_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tipos_usuarios">
+              <PropertyRef Name="id_tipo" />
+            </Principal>
+            <Dependent Role="ma_usuarios">
+              <PropertyRef Name="id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sistema_pacientesModelStoreContainer">
+          <EntitySet Name="ma_causas" EntityType="Self.ma_causas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_causas_pacientes" EntityType="Self.ma_causas_pacientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_coberturas" EntityType="Self.ma_coberturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_direccion_facturas" EntityType="Self.ma_direccion_facturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_domicilios" EntityType="Self.ma_domicilios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_ingresos" EntityType="Self.ma_ingresos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_medicos" EntityType="Self.ma_medicos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_medicos_clinica" EntityType="Self.ma_medicos_clinica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_medicos_solicita_ingresos" EntityType="Self.ma_medicos_solicita_ingresos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_otros_domicilios" EntityType="Self.ma_otros_domicilios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_pacientes" EntityType="Self.ma_pacientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_parientes_pacientes" EntityType="Self.ma_parientes_pacientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_religiones" EntityType="Self.ma_religiones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_seguro_pacientes_excluidos" EntityType="Self.ma_seguro_pacientes_excluidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_seguros" EntityType="Self.ma_seguros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_seguros_pacientes" EntityType="Self.ma_seguros_pacientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_solicitudes_medicas" EntityType="Self.ma_solicitudes_medicas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_tipo_pariente" EntityType="Self.ma_tipo_pariente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_tipos_ingresos" EntityType="Self.ma_tipos_ingresos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_tipos_seguro" EntityType="Self.ma_tipos_seguro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_tipos_seguros_excluidos" EntityType="Self.ma_tipos_seguros_excluidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_tipos_usuarios" EntityType="Self.ma_tipos_usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_tratamientos" EntityType="Self.ma_tratamientos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ma_usuarios" EntityType="Self.ma_usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ma_causas__id_ca__534D60F1" Association="Self.FK__ma_causas__id_ca__534D60F1">
+            <End Role="ma_causas" EntitySet="ma_causas" />
+            <End Role="ma_causas_pacientes" EntitySet="ma_causas_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_causas__id_pa__5441852A" Association="Self.FK__ma_causas__id_pa__5441852A">
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+            <End Role="ma_causas_pacientes" EntitySet="ma_causas_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_ingres__id_pa__41EDCAC5" Association="Self.FK__ma_ingres__id_pa__41EDCAC5">
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+            <End Role="ma_ingresos" EntitySet="ma_ingresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_ingres__id_ti__42E1EEFE" Association="Self.FK__ma_ingres__id_ti__42E1EEFE">
+            <End Role="ma_tipos_ingresos" EntitySet="ma_tipos_ingresos" />
+            <End Role="ma_ingresos" EntitySet="ma_ingresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_medico__id_me__2CF2ADDF" Association="Self.FK__ma_medico__id_me__2CF2ADDF">
+            <End Role="ma_medicos" EntitySet="ma_medicos" />
+            <End Role="ma_medicos_clinica" EntitySet="ma_medicos_clinica" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_medico__id_me__31B762FC" Association="Self.FK__ma_medico__id_me__31B762FC">
+            <End Role="ma_medicos" EntitySet="ma_medicos" />
+            <End Role="ma_medicos_solicita_ingresos" EntitySet="ma_medicos_solicita_ingresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_otros___id_do__47A6A41B" Association="Self.FK__ma_otros___id_do__47A6A41B">
+            <End Role="ma_domicilios" EntitySet="ma_domicilios" />
+            <End Role="ma_otros_domicilios" EntitySet="ma_otros_domicilios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_otros___id_pa__489AC854" Association="Self.FK__ma_otros___id_pa__489AC854">
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+            <End Role="ma_otros_domicilios" EntitySet="ma_otros_domicilios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_di__3C34F16F" Association="Self.FK__ma_pacien__id_di__3C34F16F">
+            <End Role="ma_direccion_facturas" EntitySet="ma_direccion_facturas" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_do__37703C52" Association="Self.FK__ma_pacien__id_do__37703C52">
+            <End Role="ma_domicilios" EntitySet="ma_domicilios" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_me__395884C4" Association="Self.FK__ma_pacien__id_me__395884C4">
+            <End Role="ma_medicos_clinica" EntitySet="ma_medicos_clinica" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_me__3A4CA8FD" Association="Self.FK__ma_pacien__id_me__3A4CA8FD">
+            <End Role="ma_medicos_solicita_ingresos" EntitySet="ma_medicos_solicita_ingresos" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_re__367C1819" Association="Self.FK__ma_pacien__id_re__367C1819">
+            <End Role="ma_religiones" EntitySet="ma_religiones" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_se__3B40CD36" Association="Self.FK__ma_pacien__id_se__3B40CD36">
+            <End Role="ma_seguros_pacientes" EntitySet="ma_seguros_pacientes" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_tr__3864608B" Association="Self.FK__ma_pacien__id_tr__3864608B">
+            <End Role="ma_tratamientos" EntitySet="ma_tratamientos" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_parien__id_pa__4F7CD00D" Association="Self.FK__ma_parien__id_pa__4F7CD00D">
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+            <End Role="ma_parientes_pacientes" EntitySet="ma_parientes_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_parien__tipo___5070F446" Association="Self.FK__ma_parien__tipo___5070F446">
+            <End Role="ma_tipo_pariente" EntitySet="ma_tipo_pariente" />
+            <End Role="ma_parientes_pacientes" EntitySet="ma_parientes_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_seguro__id_co__2D27B809" Association="Self.FK__ma_seguro__id_co__2D27B809">
+            <End Role="ma_coberturas" EntitySet="ma_coberturas" />
+            <End Role="ma_seguros_pacientes" EntitySet="ma_seguros_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_seguro__id_se__2B3F6F97" Association="Self.FK__ma_seguro__id_se__2B3F6F97">
+            <End Role="ma_seguros" EntitySet="ma_seguros" />
+            <End Role="ma_seguros_pacientes" EntitySet="ma_seguros_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_seguro__id_se__5CD6CB2B" Association="Self.FK__ma_seguro__id_se__5CD6CB2B">
+            <End Role="ma_seguros_pacientes" EntitySet="ma_seguros_pacientes" />
+            <End Role="ma_seguro_pacientes_excluidos" EntitySet="ma_seguro_pacientes_excluidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_seguro__id_ti__2C3393D0" Association="Self.FK__ma_seguro__id_ti__2C3393D0">
+            <End Role="ma_tipos_seguro" EntitySet="ma_tipos_seguro" />
+            <End Role="ma_seguros_pacientes" EntitySet="ma_seguros_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_seguro__id_ti__5DCAEF64" Association="Self.FK__ma_seguro__id_ti__5DCAEF64">
+            <End Role="ma_tipos_seguros_excluidos" EntitySet="ma_tipos_seguros_excluidos" />
+            <End Role="ma_seguro_pacientes_excluidos" EntitySet="ma_seguro_pacientes_excluidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_solici__id_pa__4D5F7D71" Association="Self.FK__ma_solici__id_pa__4D5F7D71">
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+            <End Role="ma_solicitudes_medicas" EntitySet="ma_solicitudes_medicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_usuari__id_ti__07F6335A" Association="Self.FK__ma_usuari__id_ti__07F6335A">
+            <End Role="ma_tipos_usuarios" EntitySet="ma_tipos_usuarios" />
+            <End Role="ma_usuarios" EntitySet="ma_usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sistema_pacientesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ma_tipos_usuarios">
+          <Key>
+            <PropertyRef Name="id_tipo" />
+          </Key>
+          <Property Name="id_tipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ma_usuarios" Relationship="Self.FK__ma_usuari__id_ti__07F6335A" FromRole="ma_tipos_usuarios" ToRole="ma_usuarios" />
+        </EntityType>
+        <EntityType Name="ma_usuarios">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_tipo" Type="Int32" />
+          <NavigationProperty Name="ma_tipos_usuarios" Relationship="Self.FK__ma_usuari__id_ti__07F6335A" FromRole="ma_usuarios" ToRole="ma_tipos_usuarios" />
+        </EntityType>
+        <Association Name="FK__ma_usuari__id_ti__07F6335A">
+          <End Role="ma_tipos_usuarios" Type="Self.ma_tipos_usuarios" Multiplicity="0..1" />
+          <End Role="ma_usuarios" Type="Self.ma_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tipos_usuarios">
+              <PropertyRef Name="id_tipo" />
+            </Principal>
+            <Dependent Role="ma_usuarios">
+              <PropertyRef Name="id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sistema_pacientesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ma_tipos_usuarios" EntityType="Self.ma_tipos_usuarios" />
+          <EntitySet Name="ma_usuarios" EntityType="Self.ma_usuarios" />
+          <AssociationSet Name="FK__ma_usuari__id_ti__07F6335A" Association="Self.FK__ma_usuari__id_ti__07F6335A">
+            <End Role="ma_tipos_usuarios" EntitySet="ma_tipos_usuarios" />
+            <End Role="ma_usuarios" EntitySet="ma_usuarios" />
+          </AssociationSet>
+          <EntitySet Name="ma_causas" EntityType="sistema_pacientesModel.ma_causas" />
+          <EntitySet Name="ma_coberturas" EntityType="sistema_pacientesModel.ma_coberturas" />
+          <EntitySet Name="ma_direccion_facturas" EntityType="sistema_pacientesModel.ma_direccion_facturas" />
+          <EntitySet Name="ma_domicilios" EntityType="sistema_pacientesModel.ma_domicilios" />
+          <EntitySet Name="ma_ingresos" EntityType="sistema_pacientesModel.ma_ingresos" />
+          <EntitySet Name="ma_medicos" EntityType="sistema_pacientesModel.ma_medicos" />
+          <EntitySet Name="ma_medicos_clinica" EntityType="sistema_pacientesModel.ma_medicos_clinica" />
+          <EntitySet Name="ma_medicos_solicita_ingresos" EntityType="sistema_pacientesModel.ma_medicos_solicita_ingresos" />
+          <EntitySet Name="ma_pacientes" EntityType="sistema_pacientesModel.ma_pacientes" />
+          <EntitySet Name="ma_religiones" EntityType="sistema_pacientesModel.ma_religiones" />
+          <EntitySet Name="ma_seguros" EntityType="sistema_pacientesModel.ma_seguros" />
+          <EntitySet Name="ma_seguros_pacientes" EntityType="sistema_pacientesModel.ma_seguros_pacientes" />
+          <EntitySet Name="ma_solicitudes_medicas" EntityType="sistema_pacientesModel.ma_solicitudes_medicas" />
+          <EntitySet Name="ma_tipos_ingresos" EntityType="sistema_pacientesModel.ma_tipos_ingresos" />
+          <EntitySet Name="ma_tipos_seguro" EntityType="sistema_pacientesModel.ma_tipos_seguro" />
+          <EntitySet Name="ma_tipos_seguros_excluidos" EntityType="sistema_pacientesModel.ma_tipos_seguros_excluidos" />
+          <EntitySet Name="ma_tratamientos" EntityType="sistema_pacientesModel.ma_tratamientos" />
+          <AssociationSet Name="FK__ma_seguro__id_co__2D27B809" Association="sistema_pacientesModel.FK__ma_seguro__id_co__2D27B809">
+            <End Role="ma_coberturas" EntitySet="ma_coberturas" />
+            <End Role="ma_seguros_pacientes" EntitySet="ma_seguros_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_di__3C34F16F" Association="sistema_pacientesModel.FK__ma_pacien__id_di__3C34F16F">
+            <End Role="ma_direccion_facturas" EntitySet="ma_direccion_facturas" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_do__37703C52" Association="sistema_pacientesModel.FK__ma_pacien__id_do__37703C52">
+            <End Role="ma_domicilios" EntitySet="ma_domicilios" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_ingres__id_pa__41EDCAC5" Association="sistema_pacientesModel.FK__ma_ingres__id_pa__41EDCAC5">
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+            <End Role="ma_ingresos" EntitySet="ma_ingresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_ingres__id_ti__42E1EEFE" Association="sistema_pacientesModel.FK__ma_ingres__id_ti__42E1EEFE">
+            <End Role="ma_tipos_ingresos" EntitySet="ma_tipos_ingresos" />
+            <End Role="ma_ingresos" EntitySet="ma_ingresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_medico__id_me__2CF2ADDF" Association="sistema_pacientesModel.FK__ma_medico__id_me__2CF2ADDF">
+            <End Role="ma_medicos" EntitySet="ma_medicos" />
+            <End Role="ma_medicos_clinica" EntitySet="ma_medicos_clinica" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_medico__id_me__31B762FC" Association="sistema_pacientesModel.FK__ma_medico__id_me__31B762FC">
+            <End Role="ma_medicos" EntitySet="ma_medicos" />
+            <End Role="ma_medicos_solicita_ingresos" EntitySet="ma_medicos_solicita_ingresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_me__395884C4" Association="sistema_pacientesModel.FK__ma_pacien__id_me__395884C4">
+            <End Role="ma_medicos_clinica" EntitySet="ma_medicos_clinica" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_me__3A4CA8FD" Association="sistema_pacientesModel.FK__ma_pacien__id_me__3A4CA8FD">
+            <End Role="ma_medicos_solicita_ingresos" EntitySet="ma_medicos_solicita_ingresos" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_re__367C1819" Association="sistema_pacientesModel.FK__ma_pacien__id_re__367C1819">
+            <End Role="ma_religiones" EntitySet="ma_religiones" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_se__3B40CD36" Association="sistema_pacientesModel.FK__ma_pacien__id_se__3B40CD36">
+            <End Role="ma_seguros_pacientes" EntitySet="ma_seguros_pacientes" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_pacien__id_tr__3864608B" Association="sistema_pacientesModel.FK__ma_pacien__id_tr__3864608B">
+            <End Role="ma_tratamientos" EntitySet="ma_tratamientos" />
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_solici__id_pa__4D5F7D71" Association="sistema_pacientesModel.FK__ma_solici__id_pa__4D5F7D71">
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+            <End Role="ma_solicitudes_medicas" EntitySet="ma_solicitudes_medicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_seguro__id_se__2B3F6F97" Association="sistema_pacientesModel.FK__ma_seguro__id_se__2B3F6F97">
+            <End Role="ma_seguros" EntitySet="ma_seguros" />
+            <End Role="ma_seguros_pacientes" EntitySet="ma_seguros_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_seguro__id_ti__2C3393D0" Association="sistema_pacientesModel.FK__ma_seguro__id_ti__2C3393D0">
+            <End Role="ma_tipos_seguro" EntitySet="ma_tipos_seguro" />
+            <End Role="ma_seguros_pacientes" EntitySet="ma_seguros_pacientes" />
+          </AssociationSet>
+          <EntitySet Name="ma_parientes_pacientes" EntityType="sistema_pacientesModel.ma_parientes_pacientes" />
+          <EntitySet Name="ma_tipo_pariente" EntityType="sistema_pacientesModel.ma_tipo_pariente" />
+          <AssociationSet Name="FK__ma_parien__id_pa__4F7CD00D" Association="sistema_pacientesModel.FK__ma_parien__id_pa__4F7CD00D">
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+            <End Role="ma_parientes_pacientes" EntitySet="ma_parientes_pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_parien__tipo___5070F446" Association="sistema_pacientesModel.FK__ma_parien__tipo___5070F446">
+            <End Role="ma_tipo_pariente" EntitySet="ma_tipo_pariente" />
+            <End Role="ma_parientes_pacientes" EntitySet="ma_parientes_pacientes" />
+          </AssociationSet>
+          <EntitySet Name="ma_causas_pacientes1Set" EntityType="sistema_pacientesModel.ma_causas_pacientes1" />
+          <AssociationSet Name="FK__ma_causas__id_ca__534D60F1" Association="sistema_pacientesModel.FK__ma_causas__id_ca__534D60F1">
+            <End Role="ma_causas" EntitySet="ma_causas" />
+            <End Role="ma_causas_pacientes1" EntitySet="ma_causas_pacientes1Set" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_causas__id_pa__5441852A" Association="sistema_pacientesModel.FK__ma_causas__id_pa__5441852A">
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+            <End Role="ma_causas_pacientes1" EntitySet="ma_causas_pacientes1Set" />
+          </AssociationSet>
+          <EntitySet Name="ma_otros_domicilios" EntityType="sistema_pacientesModel.ma_otros_domicilios" />
+          <AssociationSet Name="FK__ma_otros___id_do__47A6A41B" Association="sistema_pacientesModel.FK__ma_otros___id_do__47A6A41B">
+            <End Role="ma_domicilios" EntitySet="ma_domicilios" />
+            <End Role="ma_otros_domicilios" EntitySet="ma_otros_domicilios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_otros___id_pa__489AC854" Association="sistema_pacientesModel.FK__ma_otros___id_pa__489AC854">
+            <End Role="ma_pacientes" EntitySet="ma_pacientes" />
+            <End Role="ma_otros_domicilios" EntitySet="ma_otros_domicilios" />
+          </AssociationSet>
+          <EntitySet Name="ma_seguro_pacientes_excluidos" EntityType="sistema_pacientesModel.ma_seguro_pacientes_excluidos" />
+          <AssociationSet Name="FK__ma_seguro__id_se__5CD6CB2B" Association="sistema_pacientesModel.FK__ma_seguro__id_se__5CD6CB2B">
+            <End Role="ma_seguros_pacientes" EntitySet="ma_seguros_pacientes" />
+            <End Role="ma_seguro_pacientes_excluidos" EntitySet="ma_seguro_pacientes_excluidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ma_seguro__id_ti__5DCAEF64" Association="sistema_pacientesModel.FK__ma_seguro__id_ti__5DCAEF64">
+            <End Role="ma_tipos_seguros_excluidos" EntitySet="ma_tipos_seguros_excluidos" />
+            <End Role="ma_seguro_pacientes_excluidos" EntitySet="ma_seguro_pacientes_excluidos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ma_causas">
+          <Key>
+            <PropertyRef Name="id_causa" />
+          </Key>
+          <Property Name="id_causa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="causa" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_causas_pacientes" Relationship="sistema_pacientesModel.FK__ma_causas__id_ca__534D60F1" FromRole="ma_causas" ToRole="ma_causas_pacientes1" />
+        </EntityType>
+        <EntityType Name="ma_coberturas">
+          <Key>
+            <PropertyRef Name="id_cobertura" />
+          </Key>
+          <Property Name="id_cobertura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cobertura" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_seguros_pacientes" Relationship="sistema_pacientesModel.FK__ma_seguro__id_co__2D27B809" FromRole="ma_coberturas" ToRole="ma_seguros_pacientes" />
+        </EntityType>
+        <EntityType Name="ma_direccion_facturas">
+          <Key>
+            <PropertyRef Name="id_direccion_fac" />
+          </Key>
+          <Property Name="id_direccion_fac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="calle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="localidad" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_pacien__id_di__3C34F16F" FromRole="ma_direccion_facturas" ToRole="ma_pacientes" />
+        </EntityType>
+        <EntityType Name="ma_domicilios">
+          <Key>
+            <PropertyRef Name="id_domicilio" />
+          </Key>
+          <Property Name="id_domicilio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="calle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="localidad" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="movil" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="pais" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_pacien__id_do__37703C52" FromRole="ma_domicilios" ToRole="ma_pacientes" />
+          <NavigationProperty Name="ma_otros_domicilios" Relationship="sistema_pacientesModel.FK__ma_otros___id_do__47A6A41B" FromRole="ma_domicilios" ToRole="ma_otros_domicilios" />
+        </EntityType>
+        <EntityType Name="ma_ingresos">
+          <Key>
+            <PropertyRef Name="id_ingreso" />
+          </Key>
+          <Property Name="id_ingreso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_paciente" Type="Int32" Nullable="false" />
+          <Property Name="id_tipo_ingreso" Type="Int32" Nullable="false" />
+          <Property Name="solicitud_ingreso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hora_ingreso" Type="Time" Precision="7" />
+          <Property Name="documento_identidad" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_ingres__id_pa__41EDCAC5" FromRole="ma_ingresos" ToRole="ma_pacientes" />
+          <NavigationProperty Name="ma_tipos_ingresos" Relationship="sistema_pacientesModel.FK__ma_ingres__id_ti__42E1EEFE" FromRole="ma_ingresos" ToRole="ma_tipos_ingresos" />
+        </EntityType>
+        <EntityType Name="ma_medicos">
+          <Key>
+            <PropertyRef Name="id_medico" />
+          </Key>
+          <Property Name="id_medico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="calle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="localidad" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_medicos_clinica" Relationship="sistema_pacientesModel.FK__ma_medico__id_me__2CF2ADDF" FromRole="ma_medicos" ToRole="ma_medicos_clinica" />
+          <NavigationProperty Name="ma_medicos_solicita_ingresos" Relationship="sistema_pacientesModel.FK__ma_medico__id_me__31B762FC" FromRole="ma_medicos" ToRole="ma_medicos_solicita_ingresos" />
+        </EntityType>
+        <EntityType Name="ma_medicos_clinica">
+          <Key>
+            <PropertyRef Name="id_medico_clinica" />
+          </Key>
+          <Property Name="id_medico_clinica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_medico" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ma_medicos" Relationship="sistema_pacientesModel.FK__ma_medico__id_me__2CF2ADDF" FromRole="ma_medicos_clinica" ToRole="ma_medicos" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_pacien__id_me__395884C4" FromRole="ma_medicos_clinica" ToRole="ma_pacientes" />
+        </EntityType>
+        <EntityType Name="ma_medicos_solicita_ingresos">
+          <Key>
+            <PropertyRef Name="id_medico_solicita" />
+          </Key>
+          <Property Name="id_medico_solicita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_medico" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ma_medicos" Relationship="sistema_pacientesModel.FK__ma_medico__id_me__31B762FC" FromRole="ma_medicos_solicita_ingresos" ToRole="ma_medicos" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_pacien__id_me__3A4CA8FD" FromRole="ma_medicos_solicita_ingresos" ToRole="ma_pacientes" />
+        </EntityType>
+        <EntityType Name="ma_pacientes">
+          <Key>
+            <PropertyRef Name="id_paciente" />
+          </Key>
+          <Property Name="id_paciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num_seguridad_social" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="num_tarjeta" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_solte" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="sexo" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="lugar_nacimiento" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="profesion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="idioma" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="nacionalidad" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="permiso_residencia" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="estado_civil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_religion" Type="Int32" />
+          <Property Name="id_domicilio" Type="Int32" Nullable="false" />
+          <Property Name="id_tratamiento" Type="Int32" Nullable="false" />
+          <Property Name="id_medico_clinica" Type="Int32" Nullable="false" />
+          <Property Name="id_medicos_solicita" Type="Int32" />
+          <Property Name="id_seguro_pacientes" Type="Int32" Nullable="false" />
+          <Property Name="id_direccion_fac" Type="Int32" />
+          <NavigationProperty Name="ma_direccion_facturas" Relationship="sistema_pacientesModel.FK__ma_pacien__id_di__3C34F16F" FromRole="ma_pacientes" ToRole="ma_direccion_facturas" />
+          <NavigationProperty Name="ma_domicilios" Relationship="sistema_pacientesModel.FK__ma_pacien__id_do__37703C52" FromRole="ma_pacientes" ToRole="ma_domicilios" />
+          <NavigationProperty Name="ma_ingresos" Relationship="sistema_pacientesModel.FK__ma_ingres__id_pa__41EDCAC5" FromRole="ma_pacientes" ToRole="ma_ingresos" />
+          <NavigationProperty Name="ma_medicos_clinica" Relationship="sistema_pacientesModel.FK__ma_pacien__id_me__395884C4" FromRole="ma_pacientes" ToRole="ma_medicos_clinica" />
+          <NavigationProperty Name="ma_medicos_solicita_ingresos" Relationship="sistema_pacientesModel.FK__ma_pacien__id_me__3A4CA8FD" FromRole="ma_pacientes" ToRole="ma_medicos_solicita_ingresos" />
+          <NavigationProperty Name="ma_religiones" Relationship="sistema_pacientesModel.FK__ma_pacien__id_re__367C1819" FromRole="ma_pacientes" ToRole="ma_religiones" />
+          <NavigationProperty Name="ma_seguros_pacientes" Relationship="sistema_pacientesModel.FK__ma_pacien__id_se__3B40CD36" FromRole="ma_pacientes" ToRole="ma_seguros_pacientes" />
+          <NavigationProperty Name="ma_tratamientos" Relationship="sistema_pacientesModel.FK__ma_pacien__id_tr__3864608B" FromRole="ma_pacientes" ToRole="ma_tratamientos" />
+          <NavigationProperty Name="ma_solicitudes_medicas" Relationship="sistema_pacientesModel.FK__ma_solici__id_pa__4D5F7D71" FromRole="ma_pacientes" ToRole="ma_solicitudes_medicas" />
+          <NavigationProperty Name="ma_parientes_pacientes" Relationship="sistema_pacientesModel.FK__ma_parien__id_pa__4F7CD00D" FromRole="ma_pacientes" ToRole="ma_parientes_pacientes" />
+          <NavigationProperty Name="ma_causas_pacientes" Relationship="sistema_pacientesModel.FK__ma_causas__id_pa__5441852A" FromRole="ma_pacientes" ToRole="ma_causas_pacientes1" />
+          <NavigationProperty Name="ma_otros_domicilios" Relationship="sistema_pacientesModel.FK__ma_otros___id_pa__489AC854" FromRole="ma_pacientes" ToRole="ma_otros_domicilios" />
+        </EntityType>
+        <EntityType Name="ma_religiones">
+          <Key>
+            <PropertyRef Name="id_religion" />
+          </Key>
+          <Property Name="id_religion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="religion" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_pacien__id_re__367C1819" FromRole="ma_religiones" ToRole="ma_pacientes" />
+        </EntityType>
+        <EntityType Name="ma_seguros">
+          <Key>
+            <PropertyRef Name="id_seguro" />
+          </Key>
+          <Property Name="id_seguro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seguro" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_seguros_pacientes" Relationship="sistema_pacientesModel.FK__ma_seguro__id_se__2B3F6F97" FromRole="ma_seguros" ToRole="ma_seguros_pacientes" />
+        </EntityType>
+        <EntityType Name="ma_seguros_pacientes">
+          <Key>
+            <PropertyRef Name="id_seguro_paciente" />
+          </Key>
+          <Property Name="id_seguro_paciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_seguro" Type="Int32" Nullable="false" />
+          <Property Name="num_poliza" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_seguro" Type="Int32" Nullable="false" />
+          <Property Name="id_cobertura" Type="Int32" />
+          <NavigationProperty Name="ma_coberturas" Relationship="sistema_pacientesModel.FK__ma_seguro__id_co__2D27B809" FromRole="ma_seguros_pacientes" ToRole="ma_coberturas" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_pacien__id_se__3B40CD36" FromRole="ma_seguros_pacientes" ToRole="ma_pacientes" />
+          <NavigationProperty Name="ma_seguros" Relationship="sistema_pacientesModel.FK__ma_seguro__id_se__2B3F6F97" FromRole="ma_seguros_pacientes" ToRole="ma_seguros" />
+          <NavigationProperty Name="ma_tipos_seguro" Relationship="sistema_pacientesModel.FK__ma_seguro__id_ti__2C3393D0" FromRole="ma_seguros_pacientes" ToRole="ma_tipos_seguro" />
+          <NavigationProperty Name="ma_seguro_pacientes_excluidos" Relationship="sistema_pacientesModel.FK__ma_seguro__id_se__5CD6CB2B" FromRole="ma_seguros_pacientes" ToRole="ma_seguro_pacientes_excluidos" />
+        </EntityType>
+        <EntityType Name="ma_solicitudes_medicas">
+          <Key>
+            <PropertyRef Name="id_solicitud" />
+          </Key>
+          <Property Name="id_solicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_paciente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_solici__id_pa__4D5F7D71" FromRole="ma_solicitudes_medicas" ToRole="ma_pacientes" />
+        </EntityType>
+        <EntityType Name="ma_tipos_ingresos">
+          <Key>
+            <PropertyRef Name="id_tipo_ingreso" />
+          </Key>
+          <Property Name="id_tipo_ingreso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_ingresos" Relationship="sistema_pacientesModel.FK__ma_ingres__id_ti__42E1EEFE" FromRole="ma_tipos_ingresos" ToRole="ma_ingresos" />
+        </EntityType>
+        <EntityType Name="ma_tipos_seguro">
+          <Key>
+            <PropertyRef Name="id_tipo_seguro" />
+          </Key>
+          <Property Name="id_tipo_seguro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_seguro" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_seguros_pacientes" Relationship="sistema_pacientesModel.FK__ma_seguro__id_ti__2C3393D0" FromRole="ma_tipos_seguro" ToRole="ma_seguros_pacientes" />
+        </EntityType>
+        <EntityType Name="ma_tipos_seguros_excluidos">
+          <Key>
+            <PropertyRef Name="id_tipo_exclusion" />
+          </Key>
+          <Property Name="id_tipo_exclusion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_exclusion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_seguro_pacientes_excluidos" Relationship="sistema_pacientesModel.FK__ma_seguro__id_ti__5DCAEF64" FromRole="ma_tipos_seguros_excluidos" ToRole="ma_seguro_pacientes_excluidos" />
+        </EntityType>
+        <EntityType Name="ma_tratamientos">
+          <Key>
+            <PropertyRef Name="id_tratamiento" />
+          </Key>
+          <Property Name="id_tratamiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tratamiento" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_pacien__id_tr__3864608B" FromRole="ma_tratamientos" ToRole="ma_pacientes" />
+        </EntityType>
+        <Association Name="FK__ma_seguro__id_co__2D27B809">
+          <End Type="sistema_pacientesModel.ma_coberturas" Role="ma_coberturas" Multiplicity="0..1" />
+          <End Type="sistema_pacientesModel.ma_seguros_pacientes" Role="ma_seguros_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_coberturas">
+              <PropertyRef Name="id_cobertura" />
+            </Principal>
+            <Dependent Role="ma_seguros_pacientes">
+              <PropertyRef Name="id_cobertura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_di__3C34F16F">
+          <End Type="sistema_pacientesModel.ma_direccion_facturas" Role="ma_direccion_facturas" Multiplicity="0..1" />
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_direccion_facturas">
+              <PropertyRef Name="id_direccion_fac" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_direccion_fac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_do__37703C52">
+          <End Type="sistema_pacientesModel.ma_domicilios" Role="ma_domicilios" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_domicilios">
+              <PropertyRef Name="id_domicilio" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_domicilio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_ingres__id_pa__41EDCAC5">
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_ingresos" Role="ma_ingresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="ma_ingresos">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_ingres__id_ti__42E1EEFE">
+          <End Type="sistema_pacientesModel.ma_tipos_ingresos" Role="ma_tipos_ingresos" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_ingresos" Role="ma_ingresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tipos_ingresos">
+              <PropertyRef Name="id_tipo_ingreso" />
+            </Principal>
+            <Dependent Role="ma_ingresos">
+              <PropertyRef Name="id_tipo_ingreso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_medico__id_me__2CF2ADDF">
+          <End Type="sistema_pacientesModel.ma_medicos" Role="ma_medicos" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_medicos_clinica" Role="ma_medicos_clinica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_medicos">
+              <PropertyRef Name="id_medico" />
+            </Principal>
+            <Dependent Role="ma_medicos_clinica">
+              <PropertyRef Name="id_medico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_medico__id_me__31B762FC">
+          <End Type="sistema_pacientesModel.ma_medicos" Role="ma_medicos" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_medicos_solicita_ingresos" Role="ma_medicos_solicita_ingresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_medicos">
+              <PropertyRef Name="id_medico" />
+            </Principal>
+            <Dependent Role="ma_medicos_solicita_ingresos">
+              <PropertyRef Name="id_medico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_me__395884C4">
+          <End Type="sistema_pacientesModel.ma_medicos_clinica" Role="ma_medicos_clinica" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_medicos_clinica">
+              <PropertyRef Name="id_medico_clinica" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_medico_clinica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_me__3A4CA8FD">
+          <End Type="sistema_pacientesModel.ma_medicos_solicita_ingresos" Role="ma_medicos_solicita_ingresos" Multiplicity="0..1" />
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_medicos_solicita_ingresos">
+              <PropertyRef Name="id_medico_solicita" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_medicos_solicita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_re__367C1819">
+          <End Type="sistema_pacientesModel.ma_religiones" Role="ma_religiones" Multiplicity="0..1" />
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_religiones">
+              <PropertyRef Name="id_religion" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_religion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_se__3B40CD36">
+          <End Type="sistema_pacientesModel.ma_seguros_pacientes" Role="ma_seguros_pacientes" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_seguros_pacientes">
+              <PropertyRef Name="id_seguro_paciente" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_seguro_pacientes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_pacien__id_tr__3864608B">
+          <End Type="sistema_pacientesModel.ma_tratamientos" Role="ma_tratamientos" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tratamientos">
+              <PropertyRef Name="id_tratamiento" />
+            </Principal>
+            <Dependent Role="ma_pacientes">
+              <PropertyRef Name="id_tratamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_solici__id_pa__4D5F7D71">
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_solicitudes_medicas" Role="ma_solicitudes_medicas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="ma_solicitudes_medicas">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_seguro__id_se__2B3F6F97">
+          <End Type="sistema_pacientesModel.ma_seguros" Role="ma_seguros" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_seguros_pacientes" Role="ma_seguros_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_seguros">
+              <PropertyRef Name="id_seguro" />
+            </Principal>
+            <Dependent Role="ma_seguros_pacientes">
+              <PropertyRef Name="id_seguro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_seguro__id_ti__2C3393D0">
+          <End Type="sistema_pacientesModel.ma_tipos_seguro" Role="ma_tipos_seguro" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_seguros_pacientes" Role="ma_seguros_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tipos_seguro">
+              <PropertyRef Name="id_tipo_seguro" />
+            </Principal>
+            <Dependent Role="ma_seguros_pacientes">
+              <PropertyRef Name="id_tipo_seguro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ma_parientes_pacientes">
+          <Key>
+            <PropertyRef Name="id_pariente" />
+          </Key>
+          <Property Name="id_pariente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_paciente" Type="Int32" Nullable="false" />
+          <Property Name="tipo_pariente" Type="Int32" Nullable="false" />
+          <Property Name="relacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="calle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="localidad" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="pais" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_parien__id_pa__4F7CD00D" FromRole="ma_parientes_pacientes" ToRole="ma_pacientes" />
+          <NavigationProperty Name="ma_tipo_pariente" Relationship="sistema_pacientesModel.FK__ma_parien__tipo___5070F446" FromRole="ma_parientes_pacientes" ToRole="ma_tipo_pariente" />
+        </EntityType>
+        <EntityType Name="ma_tipo_pariente">
+          <Key>
+            <PropertyRef Name="id_tipo_pariente" />
+          </Key>
+          <Property Name="id_tipo_pariente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_pariente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ma_parientes_pacientes" Relationship="sistema_pacientesModel.FK__ma_parien__tipo___5070F446" FromRole="ma_tipo_pariente" ToRole="ma_parientes_pacientes" />
+        </EntityType>
+        <Association Name="FK__ma_parien__id_pa__4F7CD00D">
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_parientes_pacientes" Role="ma_parientes_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="ma_parientes_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_parien__tipo___5070F446">
+          <End Type="sistema_pacientesModel.ma_tipo_pariente" Role="ma_tipo_pariente" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_parientes_pacientes" Role="ma_parientes_pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tipo_pariente">
+              <PropertyRef Name="id_tipo_pariente" />
+            </Principal>
+            <Dependent Role="ma_parientes_pacientes">
+              <PropertyRef Name="tipo_pariente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ma_causas_pacientes1">
+          <Key>
+            <PropertyRef Name="id_causa_paciente" />
+          </Key>
+          <Property Name="id_causa_paciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_causa" Type="Int32" Nullable="false" />
+          <Property Name="id_paciente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ma_causas" Relationship="sistema_pacientesModel.FK__ma_causas__id_ca__534D60F1" FromRole="ma_causas_pacientes1" ToRole="ma_causas" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_causas__id_pa__5441852A" FromRole="ma_causas_pacientes1" ToRole="ma_pacientes" />
+        </EntityType>
+        <Association Name="FK__ma_causas__id_ca__534D60F1">
+          <End Type="sistema_pacientesModel.ma_causas" Role="ma_causas" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_causas_pacientes1" Role="ma_causas_pacientes1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_causas">
+              <PropertyRef Name="id_causa" />
+            </Principal>
+            <Dependent Role="ma_causas_pacientes1">
+              <PropertyRef Name="id_causa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_causas__id_pa__5441852A">
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_causas_pacientes1" Role="ma_causas_pacientes1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="ma_causas_pacientes1">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ma_otros_domicilios">
+          <Key>
+            <PropertyRef Name="id_otro_domicilio" />
+          </Key>
+          <Property Name="id_domilicio" Type="Int32" Nullable="false" />
+          <Property Name="id_paciente" Type="Int32" Nullable="false" />
+          <Property Name="domiciliado" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id_otro_domicilio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ma_domicilios" Relationship="sistema_pacientesModel.FK__ma_otros___id_do__47A6A41B" FromRole="ma_otros_domicilios" ToRole="ma_domicilios" />
+          <NavigationProperty Name="ma_pacientes" Relationship="sistema_pacientesModel.FK__ma_otros___id_pa__489AC854" FromRole="ma_otros_domicilios" ToRole="ma_pacientes" />
+        </EntityType>
+        <Association Name="FK__ma_otros___id_do__47A6A41B">
+          <End Type="sistema_pacientesModel.ma_domicilios" Role="ma_domicilios" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_otros_domicilios" Role="ma_otros_domicilios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_domicilios">
+              <PropertyRef Name="id_domicilio" />
+            </Principal>
+            <Dependent Role="ma_otros_domicilios">
+              <PropertyRef Name="id_domilicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_otros___id_pa__489AC854">
+          <End Type="sistema_pacientesModel.ma_pacientes" Role="ma_pacientes" Multiplicity="1" />
+          <End Type="sistema_pacientesModel.ma_otros_domicilios" Role="ma_otros_domicilios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_pacientes">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="ma_otros_domicilios">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ma_seguro_pacientes_excluidos">
+          <Key>
+            <PropertyRef Name="id_seguro_paciente_excluido" />
+          </Key>
+          <Property Name="id_seguro_paciente" Type="Int32" />
+          <Property Name="id_tipo_exclusion" Type="Int32" />
+          <Property Name="asegurador" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="num_accidente" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="num_empresa" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="lugar_accidente" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_accidente" Type="DateTime" Precision="3" />
+          <Property Name="num_disposicion_invalidez" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="id_seguro_paciente_excluido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ma_seguros_pacientes" Relationship="sistema_pacientesModel.FK__ma_seguro__id_se__5CD6CB2B" FromRole="ma_seguro_pacientes_excluidos" ToRole="ma_seguros_pacientes" />
+          <NavigationProperty Name="ma_tipos_seguros_excluidos" Relationship="sistema_pacientesModel.FK__ma_seguro__id_ti__5DCAEF64" FromRole="ma_seguro_pacientes_excluidos" ToRole="ma_tipos_seguros_excluidos" />
+        </EntityType>
+        <Association Name="FK__ma_seguro__id_se__5CD6CB2B">
+          <End Type="sistema_pacientesModel.ma_seguros_pacientes" Role="ma_seguros_pacientes" Multiplicity="0..1" />
+          <End Type="sistema_pacientesModel.ma_seguro_pacientes_excluidos" Role="ma_seguro_pacientes_excluidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_seguros_pacientes">
+              <PropertyRef Name="id_seguro_paciente" />
+            </Principal>
+            <Dependent Role="ma_seguro_pacientes_excluidos">
+              <PropertyRef Name="id_seguro_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ma_seguro__id_ti__5DCAEF64">
+          <End Type="sistema_pacientesModel.ma_tipos_seguros_excluidos" Role="ma_tipos_seguros_excluidos" Multiplicity="0..1" />
+          <End Type="sistema_pacientesModel.ma_seguro_pacientes_excluidos" Role="ma_seguro_pacientes_excluidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ma_tipos_seguros_excluidos">
+              <PropertyRef Name="id_tipo_exclusion" />
+            </Principal>
+            <Dependent Role="ma_seguro_pacientes_excluidos">
+              <PropertyRef Name="id_tipo_exclusion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sistema_pacientesModelStoreContainer" CdmEntityContainer="sistema_pacientesEntities">
+    <EntitySetMapping Name="ma_tipos_usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_tipos_usuarios)">
+        <MappingFragment StoreEntitySet="ma_tipos_usuarios">
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_usuarios)">
+        <MappingFragment StoreEntitySet="ma_usuarios">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_causas">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_causas)">
+        <MappingFragment StoreEntitySet="ma_causas">
+          <ScalarProperty Name="id_causa" ColumnName="id_causa" />
+          <ScalarProperty Name="causa" ColumnName="causa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_coberturas">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_coberturas)">
+        <MappingFragment StoreEntitySet="ma_coberturas">
+          <ScalarProperty Name="id_cobertura" ColumnName="id_cobertura" />
+          <ScalarProperty Name="cobertura" ColumnName="cobertura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_direccion_facturas">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_direccion_facturas)">
+        <MappingFragment StoreEntitySet="ma_direccion_facturas">
+          <ScalarProperty Name="id_direccion_fac" ColumnName="id_direccion_fac" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_domicilios">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_domicilios)">
+        <MappingFragment StoreEntitySet="ma_domicilios">
+          <ScalarProperty Name="id_domicilio" ColumnName="id_domicilio" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="movil" ColumnName="movil" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_ingresos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_ingresos)">
+        <MappingFragment StoreEntitySet="ma_ingresos">
+          <ScalarProperty Name="id_ingreso" ColumnName="id_ingreso" />
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+          <ScalarProperty Name="id_tipo_ingreso" ColumnName="id_tipo_ingreso" />
+          <ScalarProperty Name="solicitud_ingreso" ColumnName="solicitud_ingreso" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="hora_ingreso" ColumnName="hora_ingreso" />
+          <ScalarProperty Name="documento_identidad" ColumnName="documento_identidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_medicos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_medicos)">
+        <MappingFragment StoreEntitySet="ma_medicos">
+          <ScalarProperty Name="id_medico" ColumnName="id_medico" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_medicos_clinica">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_medicos_clinica)">
+        <MappingFragment StoreEntitySet="ma_medicos_clinica">
+          <ScalarProperty Name="id_medico_clinica" ColumnName="id_medico_clinica" />
+          <ScalarProperty Name="id_medico" ColumnName="id_medico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_medicos_solicita_ingresos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_medicos_solicita_ingresos)">
+        <MappingFragment StoreEntitySet="ma_medicos_solicita_ingresos">
+          <ScalarProperty Name="id_medico_solicita" ColumnName="id_medico_solicita" />
+          <ScalarProperty Name="id_medico" ColumnName="id_medico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_pacientes">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_pacientes)">
+        <MappingFragment StoreEntitySet="ma_pacientes">
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+          <ScalarProperty Name="num_seguridad_social" ColumnName="num_seguridad_social" />
+          <ScalarProperty Name="num_tarjeta" ColumnName="num_tarjeta" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="apellido_solte" ColumnName="apellido_solte" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="lugar_nacimiento" ColumnName="lugar_nacimiento" />
+          <ScalarProperty Name="profesion" ColumnName="profesion" />
+          <ScalarProperty Name="idioma" ColumnName="idioma" />
+          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+          <ScalarProperty Name="permiso_residencia" ColumnName="permiso_residencia" />
+          <ScalarProperty Name="estado_civil" ColumnName="estado_civil" />
+          <ScalarProperty Name="id_religion" ColumnName="id_religion" />
+          <ScalarProperty Name="id_domicilio" ColumnName="id_domicilio" />
+          <ScalarProperty Name="id_tratamiento" ColumnName="id_tratamiento" />
+          <ScalarProperty Name="id_medico_clinica" ColumnName="id_medico_clinica" />
+          <ScalarProperty Name="id_medicos_solicita" ColumnName="id_medicos_solicita" />
+          <ScalarProperty Name="id_seguro_pacientes" ColumnName="id_seguro_pacientes" />
+          <ScalarProperty Name="id_direccion_fac" ColumnName="id_direccion_fac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_religiones">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_religiones)">
+        <MappingFragment StoreEntitySet="ma_religiones">
+          <ScalarProperty Name="id_religion" ColumnName="id_religion" />
+          <ScalarProperty Name="religion" ColumnName="religion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_seguros">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_seguros)">
+        <MappingFragment StoreEntitySet="ma_seguros">
+          <ScalarProperty Name="id_seguro" ColumnName="id_seguro" />
+          <ScalarProperty Name="seguro" ColumnName="seguro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_seguros_pacientes">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_seguros_pacientes)">
+        <MappingFragment StoreEntitySet="ma_seguros_pacientes">
+          <ScalarProperty Name="id_seguro_paciente" ColumnName="id_seguro_paciente" />
+          <ScalarProperty Name="id_seguro" ColumnName="id_seguro" />
+          <ScalarProperty Name="num_poliza" ColumnName="num_poliza" />
+          <ScalarProperty Name="id_tipo_seguro" ColumnName="id_tipo_seguro" />
+          <ScalarProperty Name="id_cobertura" ColumnName="id_cobertura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_solicitudes_medicas">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_solicitudes_medicas)">
+        <MappingFragment StoreEntitySet="ma_solicitudes_medicas">
+          <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_tipos_ingresos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_tipos_ingresos)">
+        <MappingFragment StoreEntitySet="ma_tipos_ingresos">
+          <ScalarProperty Name="id_tipo_ingreso" ColumnName="id_tipo_ingreso" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_tipos_seguro">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_tipos_seguro)">
+        <MappingFragment StoreEntitySet="ma_tipos_seguro">
+          <ScalarProperty Name="id_tipo_seguro" ColumnName="id_tipo_seguro" />
+          <ScalarProperty Name="tipo_seguro" ColumnName="tipo_seguro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_tipos_seguros_excluidos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_tipos_seguros_excluidos)">
+        <MappingFragment StoreEntitySet="ma_tipos_seguros_excluidos">
+          <ScalarProperty Name="id_tipo_exclusion" ColumnName="id_tipo_exclusion" />
+          <ScalarProperty Name="tipo_exclusion" ColumnName="tipo_exclusion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ma_tratamientos">
+      <EntityTypeMapping TypeName="IsTypeOf(sistema_pacientesModel.ma_tratamientos)">
+        <MappingFragment StoreEntitySet="ma_tratamientos">
+          <ScalarProperty Name="id_tratamiento" ColumnName="id_tratamiento" />
+          <ScalarProperty Name="tratamiento" ColumnName="tratamiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <EntitySetMapping Name="ma_parientes_pacientes">
+            <EntityTypeMapping TypeName="sistema_pacientesModel.ma_parientes_pacientes">
+              <MappingFragment StoreEntitySet="ma_parientes_pacientes">
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="localidad" ColumnName="localidad" />
+                <ScalarProperty Name="calle" ColumnName="calle" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="relacion" ColumnName="relacion" />
+                <ScalarProperty Name="tipo_pariente" ColumnName="tipo_pariente" />
+                <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+                <ScalarProperty Name="id_pariente" ColumnName="id_pariente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ma_tipo_pariente">
+            <EntityTypeMapping TypeName="sistema_pacientesModel.ma_tipo_pariente">
+              <MappingFragment StoreEntitySet="ma_tipo_pariente">
+                <ScalarProperty Name="tipo_pariente" ColumnName="tipo_pariente" />
+                <ScalarProperty Name="id_tipo_pariente" ColumnName="id_tipo_pariente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ma_causas_pacientes1Set">
+            <EntityTypeMapping TypeName="sistema_pacientesModel.ma_causas_pacientes1">
+              <MappingFragment StoreEntitySet="ma_causas_pacientes">
+                <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+                <ScalarProperty Name="id_causa" ColumnName="id_causa" />
+                <ScalarProperty Name="id_causa_paciente" ColumnName="id_causa_paciente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ma_otros_domicilios">
+            <EntityTypeMapping TypeName="sistema_pacientesModel.ma_otros_domicilios">
+              <MappingFragment StoreEntitySet="ma_otros_domicilios">
+                <ScalarProperty Name="id_otro_domicilio" ColumnName="id_otro_domicilio" />
+                <ScalarProperty Name="domiciliado" ColumnName="domiciliado" />
+                <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+                <ScalarProperty Name="id_domilicio" ColumnName="id_domilicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ma_seguro_pacientes_excluidos">
+            <EntityTypeMapping TypeName="sistema_pacientesModel.ma_seguro_pacientes_excluidos">
+              <MappingFragment StoreEntitySet="ma_seguro_pacientes_excluidos">
+                <ScalarProperty Name="id_seguro_paciente_excluido" ColumnName="id_seguro_paciente_excluido" />
+                <ScalarProperty Name="num_disposicion_invalidez" ColumnName="num_disposicion_invalidez" />
+                <ScalarProperty Name="fecha_accidente" ColumnName="fecha_accidente" />
+                <ScalarProperty Name="lugar_accidente" ColumnName="lugar_accidente" />
+                <ScalarProperty Name="num_empresa" ColumnName="num_empresa" />
+                <ScalarProperty Name="num_accidente" ColumnName="num_accidente" />
+                <ScalarProperty Name="asegurador" ColumnName="asegurador" />
+                <ScalarProperty Name="id_tipo_exclusion" ColumnName="id_tipo_exclusion" />
+                <ScalarProperty Name="id_seguro_paciente" ColumnName="id_seguro_paciente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
